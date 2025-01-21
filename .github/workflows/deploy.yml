@@ -25,13 +25,13 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
             
-            - name: install kctl
-              run: 
-                sudo apt-get update
-                sudo apt update
-                sudo apt install snapd
-                sudo snap install kubectl 
-                kubectl --version   
+            # - name: install kctl
+            #   run: 
+            #     sudo apt-get update
+            #     sudo apt update
+            #     sudo apt install snapd
+            #     sudo snap install kubectl 
+            #     kubectl --version   
 
 
             
