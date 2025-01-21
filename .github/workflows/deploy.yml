@@ -51,9 +51,8 @@ jobs:
                 kubectl apply -f wordpress-pv-pvc.yaml
                 kubectl apply -f wordpress-deployment.yaml
             - name: Sleep for 30 seconds
-              uses: jakejarvis/wait-action@master
-                with:
-                  time: '30s'                          
+              run: sleep 30s
+              shell: bash                         
                 
             - name: check deployment 
               run: |
