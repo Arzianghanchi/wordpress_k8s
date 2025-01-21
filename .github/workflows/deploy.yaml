@@ -15,7 +15,7 @@ on:
 
 jobs:
   deploy-on-push:
-    runs-on: your-kubernetes-runner  # Replace with your runner name
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
