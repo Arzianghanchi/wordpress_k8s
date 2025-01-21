@@ -33,14 +33,14 @@ jobs:
                 sudo snap install kubectl 
                 kubectl --version   
 
-            # - uses: docker-practice/actions-setup-docker@master
-            #   timeout-minutes: 12
-            # - run: |
-            #     set -x
+            - uses: docker-practice/actions-setup-docker@master
+              timeout-minutes: 12
+            - run: |
+                set -x
 
-            #     docker version
+                docker version
 
-            #     docker run --rm hello-world
+                docker run --rm hello-world
             
             - name: minikube start
               run: |
