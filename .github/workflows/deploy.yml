@@ -19,7 +19,7 @@ on:
     
 jobs:
     deploy-on-push:
-        runs-on : ubuntu-latest
+        runs-on : runs-on: self-hosted
 
         steps:
             - name: Checkout
@@ -62,6 +62,6 @@ jobs:
                 echo "---------------------deployments"
                 kubectl get deployment
                 echo "--------------------Services"
-                minikube service --all --url
+                minikube service --all 
                 minikube logs
 
