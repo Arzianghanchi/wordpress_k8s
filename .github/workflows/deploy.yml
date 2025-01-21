@@ -29,7 +29,8 @@ jobs:
               run: 
                 sudo apt-get update
                 sudo snap install kubectl 
-                kubectl --version           
+                kubectl --version   
+                sudo snap install docker        
             
             - name: minikube start
               run: |
