@@ -38,7 +38,7 @@ jobs:
                 minikube start 
                 minikube status 
 
-            - name: apply k8s portfolio.yaml
+            - name: apply k8s wordpress config files
               run: |
                 kubectl apply -f mysql-secret.yaml
                 kubectl apply -f mysql-pv-pvc.yaml
@@ -51,7 +51,6 @@ jobs:
             - name: check deployment 
               run: |
 
-                kubectl get svc wordpress-service
                 echo "---------------------Pods"
                 kubectl get pods
                 echo "---------------------deployments"
