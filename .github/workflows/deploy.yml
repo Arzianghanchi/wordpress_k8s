@@ -33,6 +33,7 @@ jobs:
                 sudo snap install kubectl 
                 kubectl --version   
                 sudo snap install docker
+                sudo usermod -aG docker $USER && newgrp docker
             
             - name: minikube start
               run: |
