@@ -33,8 +33,6 @@ jobs:
                 sudo snap install kubectl 
                 kubectl --version   
                 sudo snap install docker
- 
-                sudo service docker start
             
             - name: minikube start
               run: |
