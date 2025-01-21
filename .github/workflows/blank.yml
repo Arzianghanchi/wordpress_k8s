@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: K8s Portfolio Deployment
 
 # Controls when the workflow will run
 on:
@@ -14,23 +14,43 @@ on:
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
+    
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    deploy-on-push:
+        runs-on : self-hosted
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            
+            - name: install kctl
+              run: 
+                sudo apt-get update
+                sudo snap install kubectl 
+                kubectl --version           
+            
+            - name: minikube start
+              run: |
+                curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+                sudo dpkg -i minikube_latest_amd64.deb
+                minikube start 
+                minikube status 
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+            - name: apply k8s portfolio.yaml
+              run: |
+                kubectl apply -f mysql-secret.yaml
+                kubectl apply -f mysql-pv-pvc.yaml
+                kubectl apply -f mysql-statefulset.yaml
+                kubectl apply -f mysql-service.yaml
+                kubectl apply -f wordpress-pv-pvc.yaml
+                kubectl apply -f wordpress-deployment.yaml
+                                
+         
+                
+            - name: check deployment 
+              run: |
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+                kubectl get svc wordpress-service
+                
+
