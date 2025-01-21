@@ -32,10 +32,8 @@ jobs:
                 sudo apt install snapd
                 sudo snap install kubectl 
                 kubectl --version   
-                sudo apt-get update
-
-                sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin     
-                
+                sudo snap install docker
+ 
                 sudo service docker start
             
             - name: minikube start
