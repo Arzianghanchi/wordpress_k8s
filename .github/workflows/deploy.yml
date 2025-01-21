@@ -36,11 +36,11 @@ jobs:
 
 
             
-            - name: minikube start
-              run: |
+            # - name: minikube start
+            #   run: |
 
-                minikube start --driver=docker
-                minikube status 
+            #     minikube start --driver=docker
+            #     minikube status 
 
             - name: apply k8s wordpress config files
               run: |
