@@ -19,7 +19,7 @@ on:
     
 jobs:
     deploy-on-push:
-        runs-on : runs-on: self-hosted
+        runs-on: self-hosted
 
         steps:
             - name: Checkout
