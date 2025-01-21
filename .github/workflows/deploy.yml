@@ -37,7 +37,8 @@ jobs:
               timeout-minutes: 12
             - run: |
                 set -x
-
+                sudo mkdir -p /etc/apt/keyrings
+                sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor --yes -o /etc/apt/keyrings/docker.gpg
                 docker version
 
                 docker run --rm hello-world
