@@ -32,7 +32,7 @@ jobs:
                 sudo apt install snapd
                 sudo snap install kubectl 
                 kubectl --version   
-                sudo snap install docker --classic      
+                sudo snap install docker     
                 
                 sudo service docker start
             
