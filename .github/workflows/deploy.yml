@@ -31,12 +31,12 @@ jobs:
                 sudo snap install kubectl 
                 kubectl --version           
             
-            - name: minikube start
-              run: |
-                curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
-                sudo dpkg -i minikube_latest_amd64.deb
-                minikube start 
-                minikube status 
+            # - name: minikube start
+            #   run: |
+            #     curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+            #     sudo dpkg -i minikube_latest_amd64.deb
+            #     minikube start 
+            #     minikube status 
 
             - name: apply k8s wordpress config files
               run: |
