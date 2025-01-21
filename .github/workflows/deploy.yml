@@ -28,7 +28,6 @@ jobs:
             - name: install kctl
               run: 
 
-                sudo apt install snapd
                 sudo snap install kubectl 
     
 
