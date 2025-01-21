@@ -47,11 +47,16 @@ jobs:
                 kubectl apply -f wordpress-pv-pvc.yaml
                 kubectl apply -f wordpress-deployment.yaml
                                 
-         
                 
             - name: check deployment 
               run: |
 
                 kubectl get svc wordpress-service
-                
+                echo "---------------------Pods"
+                kubectl get pods
+                echo "---------------------deployments"
+                kubectl get deployment
+                echo "--------------------Services"
+                minikube service --all 
+                minikube logs
 
