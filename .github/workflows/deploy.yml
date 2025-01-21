@@ -27,7 +27,7 @@ jobs:
             - name: install kctl
               run: 
                 sudo apt-get update
-                sudo snap install kubectl 
+                sudo snap install kubectl --classic.
                 kubectl --version           
             
             - name: minikube start
