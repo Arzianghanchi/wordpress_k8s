@@ -26,7 +26,7 @@ jobs:
             
             - name: install kctl
               run: |
-                sudo apt-get update && sudo apt upgrade
+ 
                 sudo snap install kubectl --classic
                 kubectl --version 
                 sudo snap install docker   
