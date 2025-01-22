@@ -26,9 +26,10 @@ jobs:
             
             - name: install kctl
               run: 
-                sudo apt-get update
+                sudo apt-get update && sudo apt upgrade
                 sudo snap install kubectl 
-                kubectl --version           
+                kubectl --version 
+                sudo snap install docker          
             
             - name: minikube start
               run: |
@@ -36,8 +37,6 @@ jobs:
                 sudo dpkg -i minikube_latest_amd64.deb
                 minikube start 
                 minikube status 
-
-
 
             - name: apply k8s wordpress config files
               run: |
