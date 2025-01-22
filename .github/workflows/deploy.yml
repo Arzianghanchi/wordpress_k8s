@@ -37,7 +37,7 @@ jobs:
               run: |
                 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
                 sudo dpkg -i minikube_latest_amd64.deb
-                minikube start --extra-config=kubeadm.ignore-preflight-errors=NumCPU --cpus=1
+                sudo minikube start --extra-config=kubeadm.ignore-preflight-errors=NumCPU --cpus=1
                 minikube status 
 
             - name: apply k8s wordpress config files
