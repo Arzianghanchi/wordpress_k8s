@@ -29,7 +29,10 @@ jobs:
                 sudo apt-get update && sudo apt upgrade
                 sudo snap install kubectl --classic
                 kubectl --version 
-                sudo snap install docker          
+                sudo snap install docker   
+                sudo groupadd docker
+                sudo usermod -aG docker $USER    
+                newgrp docker 
             
             - name: minikube start
               run: |
